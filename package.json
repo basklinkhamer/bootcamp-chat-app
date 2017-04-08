@@ -5,6 +5,7 @@
   "description": "Sogeti Digital Bootcamp - Electron Chat App Session",
   "main": "backend/index.js",
   "scripts": {
+    "postinstall": "bower install",
     "start": "gulp dist && electron-forge start",
     "lint": "eslint backend"
   },
@@ -58,7 +59,10 @@
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.22.0",
+    "bower": "^1.8.0",
+    "electron-forge": "^2.9.0",
     "electron-prebuilt-compile": "1.6.2",
-    "eslint": "^3.18.0"
+    "eslint": "^3.18.0",
+    "gulp-cli": "^1.2.2"
   }
 }
