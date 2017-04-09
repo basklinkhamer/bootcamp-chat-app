@@ -14,18 +14,17 @@ The app contains the following functionality out of the box:
 Make sure you have the following packages available globally:
 - [NodeJS](https://nodejs.org/en/download/package-manager/)
 - [Gulp CLI](http://gulpjs.com/)
-- [Bower](https://bower.io/)
 - [Electron-Forge](https://beta.electronforge.io/)
 
 In case of doubt, run:
 ```
-npm install -g gulp-cli bower electron-forge
+npm install -g gulp-cli electron-forge
 ```
 
 ## Installation
 
 ```
-npm install && bower install
+npm install
 ```
 
 ## Run App
