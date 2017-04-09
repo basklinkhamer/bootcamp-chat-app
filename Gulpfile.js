@@ -16,7 +16,6 @@ var runSequence  = require('run-sequence');
 
 // Provide a browsersync session for hot reloading
 var browserSync  = require('browser-sync').create();
-var wiredep      = require('wiredep').stream;
 
 // Setup Paths and Patterns
 var develop      = './app/';
@@ -48,7 +47,7 @@ var paths = {
         sass:   production + assets + '/css',
         js:     production + assets + '/scripts',
     },
-    bower: ['/bower_components']
+    npm: ['/node_modules']
 };
 
 var devAssets = [
@@ -64,7 +63,7 @@ var config = {
     sass: {
         errLogToConsole: true,
         outputStyle: 'expanded',
-        includePaths: paths.bower
+        includePaths: paths.npm
     },
     autoprefixer: {
         browsers: [
@@ -85,7 +84,7 @@ gulp.task('serve', ['dev-sass', 'dev-js', 'dev-html'], function() {
         server: {
             baseDir: serve,
             routes: {
-                "/bower_components": "bower_components"
+                "/node_modules": "node_modules"
             },
             middleware: function (req, res, next) {
                 res.setHeader('Access-Control-Allow-Origin', '*');
@@ -136,14 +135,6 @@ gulp.task('watch', function() {
         });
 
     return gulp;
-});
-
-// Use wiredep to implement used bower components (Experimental...)
-gulp.task('bower', function () {
-    return gulp
-        .src(paths.develop.html)
-        .pipe(wiredep())
-        .pipe(gulp.dest(serve));
 });
 
 gulp.task('dev-clean', function(){
